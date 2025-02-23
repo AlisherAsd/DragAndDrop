@@ -19,7 +19,7 @@ export default function Table() {
     useEffect(() => {
       const getData = () => {
         setLoading(true)
-        const res = setData(mockData)
+        setData(mockData)
         setLoading(false)
       }
 

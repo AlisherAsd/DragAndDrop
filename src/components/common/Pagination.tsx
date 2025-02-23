@@ -11,7 +11,7 @@ type PaginationProps = {
 const Pagination: React.FC<PaginationProps> = ({ dataPerPage, totalData, paginate }) => {
 
     const [currentNum, setCurrentNum] = useState<number>(1)
-    const DataNumbers = []
+    const DataNumbers: number[] = []
     for (let i = 1; i <= Math.ceil(totalData / dataPerPage); i++) {
         DataNumbers.push(i)
     }
