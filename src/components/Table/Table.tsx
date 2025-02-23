@@ -84,7 +84,7 @@ export default function Table() {
         <div>
           <Pagination 
             dataPerPage={dataPerPage}
-            totalData={data[0].length}
+            totalData={data[0] ? data[0].length : 0}
             paginate={paginate}
           />
         </div>
