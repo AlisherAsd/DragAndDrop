@@ -10,7 +10,7 @@ type PaginationProps = {
 
 const Pagination: React.FC<PaginationProps> = ({ dataPerPage, totalData, paginate }) => {
 
-    const [currentNum, setCurrentNum] = useState<number>(1)
+    let numLocal: number = 1
     const DataNumbers: number[] = []
     for (let i = 1; i <= Math.ceil(totalData / dataPerPage); i++) {
         DataNumbers.push(i)
@@ -18,7 +18,7 @@ const Pagination: React.FC<PaginationProps> = ({ dataPerPage, totalData, paginat
 
     function clickOnNum(id: number) {
         paginate(id)
-        setCurrentNum(id)
+        numLocal = id
     }
 
     return (
@@ -26,7 +26,7 @@ const Pagination: React.FC<PaginationProps> = ({ dataPerPage, totalData, paginat
             {
                 DataNumbers.map(num => {
                     return (
-                        <div className={num == currentNum ? s.pagNumCurrent : s.pagNumDefault} key={num}>
+                        <div className={num == numLocal ? s.pagNumCurrent : s.pagNumDefault} key={num}>
                             <a href="#" onClick={() => clickOnNum(num)}>{num}</a>
                         </div>
                     )
