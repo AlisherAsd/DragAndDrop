@@ -1,5 +1,5 @@
 "use client"
-import { DragEvent, SetStateAction, useEffect, useState } from "react";
+import { DragEvent, useEffect, useState } from "react";
 import Column from "./Column/Column";
 import s from './Table.module.css'
 import Pagination from "../common/Pagination";
@@ -10,10 +10,10 @@ import { showDataPagination } from "../utils/showDataPafination";
 export default function Table() {
 
     const [data, setData] = useState<string[][]>([])
-    let countShowData: number = 10
+    const countShowData: number = 10
     const [loading, setLoading] = useState<boolean>(false)
     const [currentPage, setCurrentPage] = useState<number>(1)
-    const [dataPerPage, setDataPerPage] = useState<number>(countShowData)
+    const [dataPerPage] = useState<number>(countShowData)
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
     // Эмитация запроса к апи
     useEffect(() => {
